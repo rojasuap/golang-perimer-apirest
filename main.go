@@ -1,5 +1,6 @@
 package main
 
+//IMPORTAR PAQUETES
 import (
 	"encoding/json"
 	"log"
@@ -8,6 +9,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+//ESTRUCTURAS
 type Person struct {
 	Id        string   `json:"id,omitempty"`
 	FirstName string   `json:"firstname,omitempty"`
@@ -22,6 +24,7 @@ type Address struct {
 
 var people []Person
 
+//FUNCIONES
 func GetPersonEndpoint(w http.ResponseWriter, req *http.Request) {
 	params := mux.Vars(req)
 
@@ -59,6 +62,7 @@ func deletePeopleEndpoint(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
+//FUNCION PRINCIPAL DONDE SE EJECUTA EL CÓDIGO
 func main() {
 	router := mux.NewRouter()
 
